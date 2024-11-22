@@ -11,11 +11,12 @@ const app = express();
 app.use(express.json());
 app.use(
 	cors({
-		origin: process.env.ORIGIN,
-		methods: ["GET", "PUT", "POST", "DELETE"],
-		credentials: true,
+	  origin: "*", 
+	  methods: ["GET", "PUT", "POST", "DELETE"], 
+	  credentials: false, 
 	})
-);
+  );
+  
 app.use(router);
 app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/auctions", require("./routes/auctionRoutes"));
